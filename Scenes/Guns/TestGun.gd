@@ -14,7 +14,7 @@ var dropped = false
 func _process(delta):
 	if dropped:
 		# Drop it forward
-		self.apply_impulse(self.transform.basis.z, -transform.basis.z * 10)
+		self.apply_impulse(self.transform.basis.z, -transform.basis.z * 5)
 		dropped = false
 
 func shoot():

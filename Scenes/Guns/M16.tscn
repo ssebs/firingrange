@@ -2,19 +2,13 @@
 
 [ext_resource path="res://Assets/Models/M16.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://Scenes/Guns/M16.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=3]
+[ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=4]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Fire"
-length = 0.25
-
-[sub_resource type="Animation" id=2]
-resource_name = "Reload"
-length = 0.75
-
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.01, 0.02, 0.01 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.788235, 0.466667, 0.0117647, 1 )
 emission_enabled = true
 emission = Color( 0.964706, 0.721569, 0.258824, 1 )
@@ -22,16 +16,16 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="SphereMesh" id=3]
+material = SubResource( 2 )
 radius = 0.05
 height = 0.1
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.05, 0.34233, 1.25504 )
 
 [node name="M16" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116, 0.135 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.160683, 0.0800101 )
 collision_layer = 2147483649
 collision_mask = 2147483649
 script = ExtResource( 2 )
@@ -41,12 +35,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114336, -1.80794 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
-anims/Fire = SubResource( 1 )
-anims/Reload = SubResource( 2 )
-blend_times = [ "Fire", "Fire", 0.005 ]
+anims/ARFire = ExtResource( 3 )
+anims/ARReload = ExtResource( 4 )
 
 [node name="GunBody" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, -0.045, 0.09 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="M16" type="MeshInstance" parent="GunBody"]
 transform = Transform( -4.23594e-06, -26, -4.23594e-06, 0, -4.23594e-06, 26, -26, 4.23594e-06, 6.90122e-13, 0, 0, 0.223 )
@@ -56,25 +49,27 @@ material/1 = null
 
 [node name="FrontSight" type="MeshInstance" parent="GunBody"]
 transform = Transform( 0.6, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.200351, -0.112631 )
-mesh = SubResource( 4 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="RearSightL" type="MeshInstance" parent="GunBody"]
 transform = Transform( 1, 0, 0, 0, 1.15, 0, 0, 0, 1.5, -0.014, 0.207, 0.190931 )
-mesh = SubResource( 4 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="RearSightR" type="MeshInstance" parent="GunBody"]
 transform = Transform( 1, 0, 0, 0, 1.15, 0, 0, 0, 1.5, 0.014, 0.207, 0.191 )
-mesh = SubResource( 4 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="MuzzleFlash" type="MeshInstance" parent="GunBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0210171, -1.62552 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0210171, -1.62552 )
 visible = false
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0.09 )
-shape = SubResource( 7 )
+shape = SubResource( 4 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

@@ -97,7 +97,7 @@ func handle_movement(delta):
 
 func handle_guns(delta):
 	# Shoot
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		if gun: gun.shoot()
 			
 	# Reload

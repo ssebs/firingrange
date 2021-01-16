@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Guns/TestGun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/AK.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/M16.tscn" type="PackedScene" id=6]
@@ -12,13 +11,22 @@ extents = Vector3( 5, 1, 20 )
 
 [sub_resource type="CubeMesh" id=2]
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.0313726, 0.427451, 0.156863, 1 )
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1.5, 1, 3 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 14 )
 
 [node name="Map" type="Spatial"]
 
 [node name="Floor" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6.48324 )
 collision_layer = 3
 collision_mask = 3
 __meta__ = {
@@ -30,9 +38,8 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
-layers = 3
 mesh = SubResource( 2 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 7 )
 
 [node name="BoxesGroup" type="Spatial" parent="."]
 
@@ -57,17 +64,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83573, 1.2, -18.3652 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.99305, 5.06382 )
 
-[node name="TestGun" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1.12485, -3.05449 )
+[node name="Gunrack" type="StaticBody" parent="."]
+transform = Transform( 0.992351, 0.123446, 0, -0.123446, 0.992351, 0, 0, 0, 1, -6.40197, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="TestGun2" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.899921, -1.7258 )
+[node name="CollisionShape" type="CollisionShape" parent="Gunrack"]
+shape = SubResource( 10 )
 
-[node name="BasicPistol" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00971174, 0.75685, 1.54927 )
+[node name="MeshInstance" type="MeshInstance" parent="Gunrack"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = null
 
-[node name="AK" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.03322, 0.888322, 0.0953943 )
+[node name="GunsGroup" type="Spatial" parent="."]
+transform = Transform( 0.988356, 0.152158, 0, -0.152158, 0.988356, 0, 0, 0, 1, -6.30754, 1.10382, 0 )
 
-[node name="M16" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22414, 0.308732, 0.135 )
+[node name="BasicPistol" parent="GunsGroup" instance=ExtResource( 4 )]
+transform = Transform( -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0, 1, 0.966481, 0, 0 )
+
+[node name="AK" parent="GunsGroup" instance=ExtResource( 5 )]
+transform = Transform( 1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0.432986, 0, -1.11329 )
+
+[node name="M16" parent="GunsGroup" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 0.298241, 0, 0.916974 )

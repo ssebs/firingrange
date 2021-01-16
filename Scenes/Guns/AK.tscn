@@ -3,14 +3,8 @@
 [ext_resource path="res://Scenes/Guns/AK.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Models/AK47(1).material" type="Material" id=2]
 [ext_resource path="res://Assets/Models/AK47(2).material" type="Material" id=3]
-
-[sub_resource type="Animation" id=1]
-resource_name = "Fire"
-length = 0.25
-
-[sub_resource type="Animation" id=2]
-resource_name = "Reload"
-length = 0.75
+[ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=5]
 
 [sub_resource type="ArrayMesh" id=9]
 surfaces/0 = {
@@ -40,7 +34,7 @@ surfaces/1 = {
 "vertex_count": 152
 }
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=10]
 size = Vector3( 0.01, 0.02, 0.01 )
 
 [sub_resource type="SpatialMaterial" id=6]
@@ -70,9 +64,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.70976 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
-anims/Fire = SubResource( 1 )
-anims/Reload = SubResource( 2 )
-blend_times = [ "Fire", "Fire", 0.005 ]
+anims/ARFire = ExtResource( 4 )
+anims/ARReload = ExtResource( 5 )
 
 [node name="GunBody" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -85,21 +78,21 @@ material/1 = ExtResource( 3 )
 
 [node name="FrontSight" type="MeshInstance" parent="GunBody"]
 transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0.163442, -0.530485 )
-mesh = SubResource( 3 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="RearSightL" type="MeshInstance" parent="GunBody"]
 transform = Transform( 2, 0, 0, 0, 1.15, 0, 0, 0, 1.5, -0.02, 0.16098, 0.136 )
-mesh = SubResource( 3 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="RearSightR" type="MeshInstance" parent="GunBody"]
 transform = Transform( 2, 0, 0, 0, 1.15, 0, 0, 0, 1.5, 0.02, 0.161, 0.136 )
-mesh = SubResource( 3 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="MuzzleFlash" type="MeshInstance" parent="GunBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0210171, -1.62351 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0210171, -1.62351 )
 visible = false
 mesh = SubResource( 7 )
 material/0 = null
@@ -107,3 +100,5 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179211, -0.284036 )
 shape = SubResource( 8 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

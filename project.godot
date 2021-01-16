@@ -19,6 +19,11 @@ config/name="Firing Range"
 run/main_scene="res://Map.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+gdscript/warnings/unused_variable=false
+gdscript/warnings/standalone_ternary=false
+
 [display]
 
 window/size/width=1280
@@ -27,6 +32,12 @@ window/size/height=720
 [gdnative]
 
 singletons=[  ]
+
+[importer_defaults]
+
+image={
+
+}
 
 [input]
 
