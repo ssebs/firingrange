@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/TestGun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -12,7 +11,9 @@ height = 1.5
 radius = 0.5
 mid_height = 1.5
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=[
+"Players",
+]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -45,7 +46,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Reach" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
 [node name="Hand" type="Spatial" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418173, 0.406169, -0.685754 )
-
-[node name="TestGun" parent="Head/Hand" instance=ExtResource( 2 )]
