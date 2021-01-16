@@ -1,10 +1,14 @@
-![Logo](https://github.com/funabab/godot-git-control/raw/master/addons/godot-git-control.funabab/logo.png)
+# Firing Range
 
-# Godot Git Control #
+Simple Target practice game written in Godot
 
-This is a simple Git Companion plugin for @godotengine
+This can be used as a template for making more complex games
 
-![ScreenShot](https://github.com/funabab/godot-git-control/raw/master/addons/godot-git-control.funabab/screenshot.png)
 
-## minnor rewrite
-## added godotengine 3 support and some other features
+&copy; 2021 Sebastian Safari - All Rights Reserved
+Unauthorized copying of this file, via any medium is strictly prohibited.
+
+Proprietary and confidential
+
+Written by Sebastian Safari <ssafari@ssebs.com>, January 2021
+
