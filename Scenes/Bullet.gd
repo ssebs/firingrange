@@ -35,6 +35,7 @@ func _on_hit(body):
 	if not hit_something:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(DAMAGE, self.global_transform)
+#	print("Bullet hit %s", body.filename)
 	hit_something = true
 	self.queue_free()
 

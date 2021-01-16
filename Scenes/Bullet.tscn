@@ -21,8 +21,7 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="Area" type="Area" parent="."]
-collision_layer = 2
-collision_mask = 2147483650
+collision_layer = 2147483649
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 3 )

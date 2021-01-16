@@ -25,6 +25,7 @@ func shoot():
 	var b = bullet_scn.instance()
 	fp.add_child(b)
 	b.global_transform = self.global_transform
+	b.translate(-transform.basis.z)
 	b.DAMAGE = 50
 	b.SPEED = 10
 
