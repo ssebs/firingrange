@@ -156,7 +156,7 @@ radius = 0.05
 height = 0.1
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 0.05, 0.2, 0.25 )
+extents = Vector3( 0.05, 0.2, 0.266774 )
 
 [node name="BasicPistol" type="RigidBody"]
 collision_layer = 2147483649
@@ -200,12 +200,12 @@ mesh = SubResource( 7 )
 material/0 = null
 
 [node name="TriggerGuardF" type="MeshInstance" parent="GunBody"]
-transform = Transform( 5, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.00415909, -0.0628758, -0.0540497 )
+transform = Transform( 3, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.00415909, -0.0628758, -0.0540497 )
 mesh = SubResource( 8 )
 material/0 = null
 
 [node name="TriggerGuardB" type="MeshInstance" parent="GunBody"]
-transform = Transform( 5, 0, 0, 0, -6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, -0.132125, 0.0731123 )
+transform = Transform( 3, 0, 0, 0, -6.5567e-08, -1, 0, 1.5, -4.37114e-08, 0, -0.13976, 0.0731123 )
 mesh = SubResource( 8 )
 material/0 = null
 
@@ -221,5 +221,5 @@ mesh = SubResource( 12 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0.0178303 )
 shape = SubResource( 6 )

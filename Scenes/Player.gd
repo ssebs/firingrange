@@ -1,6 +1,7 @@
 extends KinematicBody
 
 const GRAVITY = 9.8
+
 export var MOUSE_SENSITIVITY = 0.07
 
 var show_crosshair = false

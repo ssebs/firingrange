@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/HandADS.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -51,4 +53,11 @@ enabled = true
 cast_to = Vector3( 0, 0, -5 )
 
 [node name="Hand" type="Spatial" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418173, 0.406169, -0.685754 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 0.406, -0.686 )
+script = ExtResource( 4 )
+default_pos = Vector3( 0.418, 0.406, -0.686 )
+ads_pos = Vector3( 0, 0.622, -0.562 )
+cam_path = NodePath("../Camera")
+crosshair_path = NodePath("../Camera/TextureRect")
+
+[node name="BasicPistol" parent="Head/Hand" instance=ExtResource( 2 )]
