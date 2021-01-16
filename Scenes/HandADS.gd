@@ -9,7 +9,7 @@ export var crosshair_path: NodePath
 
 var cam: Camera
 var crosshair: TextureRect
-var fov = {"Default": 70, "ADS": 55}
+var fov = {"Default": 70, "ADS": 50}
 
 func _ready():
 	cam = get_node(cam_path)

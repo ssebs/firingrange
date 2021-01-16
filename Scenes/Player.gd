@@ -19,7 +19,7 @@ var wpn_to_drop
 onready var cam = $Head/Camera
 onready var head = $Head
 onready var hand = $Head/Hand
-onready var crosshair = $Head/Camera/TextureRect
+onready var crosshair = $Head/Camera/Crosshair
 onready var reach = $Head/Camera/Reach
 
 

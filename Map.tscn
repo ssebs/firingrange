@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Guns/TestGun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/AK.tscn" type="PackedScene" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5, 1, 20 )
@@ -63,3 +64,6 @@ transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.89
 
 [node name="BasicPistol" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00971174, 0.75685, 1.54927 )
+
+[node name="AK" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.03322, 0.888322, 0.0953943 )
