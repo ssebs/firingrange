@@ -48,6 +48,7 @@ func _process(delta):
 	if reach.is_colliding() and reach.get_collider():
 		if reach.get_collider().has_method("shoot"):
 			wpn_to_spawn = load(reach.get_collider().filename).instance()
+			wpn_to_spawn.picked_up = true
 #			print(wpn_to_spawn)
 		else:
 			wpn_to_spawn = null
