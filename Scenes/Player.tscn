@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
-height = 1.5
+height = 2.0
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
@@ -33,6 +33,7 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611513, 0 )
 
 [node name="Camera" type="Camera" parent="Head" groups=[
 "P_Camera",
@@ -98,7 +99,7 @@ enabled = true
 cast_to = Vector3( 0, 0, -5 )
 
 [node name="Hand" type="Spatial" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.623, -0.569 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 0.406, -0.686 )
 script = ExtResource( 4 )
 default_pos = Vector3( 0.418, 0.406, -0.686 )
 ads_pos = Vector3( 0, 0.623, -0.569 )

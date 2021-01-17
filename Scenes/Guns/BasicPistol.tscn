@@ -173,7 +173,7 @@ anims/Reload = SubResource( 2 )
 blend_times = [ "Fire", "Fire", 0.005 ]
 
 [node name="GunBody" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.965925, -0.258819, 0, 0.258819, 0.965925, 0, 0.0620615, 0.0695373 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="Barrel" type="MeshInstance" parent="GunBody"]
 mesh = SubResource( 3 )
