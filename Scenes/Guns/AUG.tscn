@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/Guns/AK.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/ARGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Models/AUG.mesh" type="ArrayMesh" id=2]
 [ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=3]
 [ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=4]
@@ -42,7 +42,7 @@ anims/ARReload = ExtResource( 5 )
 anims/GunsARInspect = ExtResource( 3 )
 
 [node name="GunBody" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
+transform = Transform( 0.995939, -0.0337625, -0.0834625, 0.0311712, 0.998996, -0.0321589, 0.0844646, 0.0294267, 0.995991, 0, 0.0276164, 0 )
 
 [node name="AUG" type="MeshInstance" parent="GunBody"]
 transform = Transform( -1.09278e-06, -25, -1.09278e-06, 0, -1.09279e-06, 25, -25, 1.09279e-06, 4.77672e-14, 0, 0, 0.18987 )

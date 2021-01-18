@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Area.vs" type="Script" id=3]
 [ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/AK.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/M16.tscn" type="PackedScene" id=6]
@@ -24,6 +23,23 @@ albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 
 [sub_resource type="CubeMesh" id=6]
 material = SubResource( 5 )
+
+[sub_resource type="VisualScript" id=9]
+data = {
+"base_type": "Area",
+"functions": [ {
+"data_connections": [  ],
+"function_id": -1,
+"name": "f_312843592",
+"nodes": [  ],
+"scroll": Vector2( -124.75, -100 ),
+"sequence_connections": [  ]
+} ],
+"is_tool_script": false,
+"signals": [  ],
+"variables": [  ],
+"vs_unify": true
+}
 
 [sub_resource type="BoxShape" id=7]
 
@@ -98,7 +114,7 @@ transform = Transform( -4.47035e-08, 4.44089e-16, 1, 1, -4.37114e-08, 4.47035e-0
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0 )
-script = ExtResource( 3 )
+script = SubResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 7 )

@@ -38,6 +38,8 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel") and get_is_mouse_captured():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show_crosshair = false
+		# enable, once return to scene is working
+#		get_tree().change_scene("res://Scenes/Main.tscn")
 	
 	# Camera movement
 	if event is InputEventMouseMotion and get_is_mouse_captured():
