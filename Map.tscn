@@ -24,7 +24,7 @@ albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 [sub_resource type="CubeMesh" id=6]
 material = SubResource( 5 )
 
-[sub_resource type="VisualScript" id=9]
+[sub_resource type="VisualScript" id=7]
 data = {
 "base_type": "Area",
 "functions": [ {
@@ -41,9 +41,9 @@ data = {
 "vs_unify": true
 }
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=8]
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=9]
 
 [node name="Map" type="Spatial"]
 
@@ -114,13 +114,13 @@ transform = Transform( -4.47035e-08, 4.44089e-16, 1, 1, -4.37114e-08, 4.47035e-0
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0 )
-script = SubResource( 9 )
+script = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area"]
-mesh = SubResource( 8 )
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="AUG" parent="." instance=ExtResource( 7 )]
