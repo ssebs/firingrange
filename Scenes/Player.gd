@@ -151,7 +151,6 @@ func get_is_mouse_captured() -> bool:
 	return Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 # get_is_mouse_captured
 
-
 func _on_Area_body_entered(body):
 	if body.is_in_group("Players") or body.is_in_group("Bullets"):
 		get_tree().change_scene("res://Scenes/Maps/TestMap.tscn")

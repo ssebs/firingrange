@@ -42,7 +42,7 @@ anims/ARReload = ExtResource( 5 )
 anims/GunsARInspect = ExtResource( 3 )
 
 [node name="GunBody" type="Spatial" parent="."]
-transform = Transform( 0.995939, -0.0337625, -0.0834625, 0.0311712, 0.998996, -0.0321589, 0.0844646, 0.0294267, 0.995991, 0, 0.0276164, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="AUG" type="MeshInstance" parent="GunBody"]
 transform = Transform( -1.09278e-06, -25, -1.09278e-06, 0, -1.09279e-06, 25, -25, 1.09279e-06, 4.77672e-14, 0, 0, 0.18987 )

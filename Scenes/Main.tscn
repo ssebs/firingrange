@@ -70,8 +70,7 @@ text = "Sound Volume"
 margin_top = 123.0
 margin_right = 584.0
 margin_bottom = 139.0
-max_value = 10.0
-value = 7.0
+value = 70.0
 
 [node name="Start" type="Button" parent="Panel"]
 anchor_left = 0.5
@@ -102,5 +101,5 @@ __meta__ = {
 }
 [connection signal="value_changed" from="Panel/VBoxContainer/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
 [connection signal="pressed" from="Panel/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_CloseContinue_pressed"]
 [connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_CloseContinue_pressed"]

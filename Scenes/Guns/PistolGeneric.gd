@@ -8,20 +8,25 @@ onready var audio = $AudioPlayer
 var sound_pistol = preload("res://Assets/Sounds/gunpistolshot.wav")
 var sound_reload = preload("res://Assets/Sounds/guncock.wav")
 
-var ammo_left = 10
-var ammo_spare = 20
-var max_ammo_in_mag = 10
+var ammo_left
+var ammo_spare
+var max_ammo_in_mag
+var fire_speed
+var damage
+var bullet_vel
 
 var dropped = false
 var picked_up = false
 var ammo_label: Label
 
 # Functions
-func _init(_al, _as).():
+func _init(_al=30, _as=60, _dmg=20, _fs=1, _vel=80).():
 	ammo_left = _al
 	ammo_spare = _as
 	max_ammo_in_mag = _al
-	
+	fire_speed = _fs
+	damage = _dmg
+	bullet_vel = _vel
 
 func _ready():
 	audio.connect("finished", self, "destroy")
@@ -38,7 +43,7 @@ func _process(delta):
 # _process
 
 func shoot():
-	if ap.is_playing() or audio.playing:
+	if ap.is_playing():
 		return
 	
 	if ammo_left > 0:
@@ -47,11 +52,11 @@ func shoot():
 		fp.add_child(b)
 		b.global_transform = self.global_transform
 		b.translate(-transform.basis.z)
-		b.DAMAGE = 34
-		b.SPEED = 80
+		b.DAMAGE = damage
+		b.SPEED = bullet_vel
 		
 		# For the player
-		ap.play("Fire")
+		ap.play("Fire", -1, fire_speed)
 		audio.stream = sound_pistol
 		audio.play()
 		ammo_left -= 1
