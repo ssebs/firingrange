@@ -51,6 +51,9 @@ func shoot():
 	ammo_label.text = "Ammo: " + str(ammo_left) + "/" + str(ammo_spare)
 # shoot
 
+func inspect_wpn():
+	ap.play("ARInspect")
+
 func reload():
 	if ap.is_playing():
 		return

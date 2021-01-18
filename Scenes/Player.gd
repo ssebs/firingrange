@@ -12,16 +12,21 @@ var jump = 5
 var direction: Vector3
 var velocity: Vector3
 var fall: Vector3
+
 var gun
 var wpn_to_spawn
 var wpn_to_drop
+
+var primary_gun
+var secondary_gun
+
 
 onready var cam = $Head/Camera
 onready var head = $Head
 onready var hand = $Head/Hand
 onready var crosshair = $Head/Camera/Crosshair
 onready var reach = $Head/Camera/Reach
-
+onready var inventory = $Head/Inventory
 
 # For mouse input
 func _input(event):
@@ -49,6 +54,7 @@ func _process(delta):
 		if reach.get_collider().has_method("shoot"):
 			wpn_to_spawn = load(reach.get_collider().filename).instance()
 			wpn_to_spawn.picked_up = true
+			primary_gun = wpn_to_spawn
 #			print(wpn_to_spawn)
 		else:
 			wpn_to_spawn = null
@@ -57,7 +63,11 @@ func _process(delta):
 	
 	# Choose a gun to drop
 	if hand.get_child(0) != null:
-		wpn_to_drop = load(hand.get_child(0).filename).instance()
+		# fix
+		if secondary_gun == null:
+			secondary_gun = load(hand.get_child(0).filename).instance()
+		else:
+			wpn_to_drop = load(hand.get_child(0).filename).instance()
 #		print(wpn_to_drop)
 	else:
 		wpn_to_drop = null
@@ -104,11 +114,24 @@ func handle_guns(delta):
 	# Reload
 	if Input.is_action_just_pressed("reload"):
 		if gun: gun.reload()
+		
+	if Input.is_action_just_pressed("inspect"):
+		if gun: gun.inspect_wpn()
+
+	# TODO: fix
+	# Switch weapons
+	if Input.is_action_just_pressed("gun1"):
+		gun = primary_gun
+	elif Input.is_action_just_pressed("gun2"):
+		gun = secondary_gun
 
 	# Pickup and drop gun
 	if Input.is_action_just_pressed("interact"):
 		if wpn_to_spawn != null:
 			if hand.get_child(0) != null:
+				if secondary_gun == null:
+					secondary_gun = wpn_to_drop
+					return
 				self.get_parent().add_child(wpn_to_drop)
 				wpn_to_drop.global_transform = hand.global_transform
 				wpn_to_drop.dropped = true
@@ -117,6 +140,7 @@ func handle_guns(delta):
 			hand.add_child(wpn_to_spawn)
 			wpn_to_spawn.rotation = hand.rotation
 			gun = wpn_to_spawn
+			primary_gun = gun
 # handle_guns
 
 
@@ -124,3 +148,8 @@ func handle_guns(delta):
 func get_is_mouse_captured() -> bool:
 	return Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 # get_is_mouse_captured
+
+
+func _on_Area_body_entered(body):
+	if body.is_in_group("Players") or body.is_in_group("Bullets"):
+		get_tree().change_scene("res://Scenes/Maps/TestMap.tscn")

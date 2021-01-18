@@ -105,3 +105,5 @@ default_pos = Vector3( 0.418, 0.406, -0.686 )
 ads_pos = Vector3( 0, 0.623, -0.569 )
 cam_path = NodePath("../Camera")
 crosshair_path = NodePath("../Camera/Crosshair")
+
+[node name="Inventory" type="Spatial" parent="Head"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Guns/AK.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Models/AK47(1).material" type="Material" id=2]
 [ext_resource path="res://Assets/Models/AK47(2).material" type="Material" id=3]
 [ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=4]
 [ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=5]
+[ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -65,10 +66,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.70976 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
 anims/ARFire = ExtResource( 4 )
+anims/ARInspect = ExtResource( 6 )
 anims/ARReload = ExtResource( 5 )
 
 [node name="GunBody" type="Spatial" parent="."]
-transform = Transform( 1, 0.000174824, 0, -0.000174824, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 
 [node name="AK48" type="MeshInstance" parent="GunBody"]
 transform = Transform( -1.09278e-06, -25, -1.09278e-06, 0, -1.09279e-06, 25, -25, 1.09279e-06, 4.77672e-14, 0, 0, 0.18987 )

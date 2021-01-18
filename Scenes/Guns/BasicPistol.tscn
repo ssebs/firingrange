@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Guns/BasicPistol.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fire"
@@ -168,7 +169,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.381695 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
+anims/ARInspect = ExtResource( 2 )
 anims/Fire = SubResource( 1 )
+anims/GunsARInspect = ExtResource( 2 )
 anims/Reload = SubResource( 2 )
 blend_times = [ "Fire", "Fire", 0.005 ]
 
