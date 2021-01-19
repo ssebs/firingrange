@@ -6,11 +6,11 @@
 radius = 0.5
 height = 2.0
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.698039, 0.203922, 0.203922, 1 )
 
-[sub_resource type="CapsuleMesh" id=2]
-material = SubResource( 3 )
+[sub_resource type="CapsuleMesh" id=3]
+material = SubResource( 2 )
 radius = 0.5
 mid_height = 2.0
 
@@ -22,7 +22,7 @@ radius = 3.0
 
 [sub_resource type="Animation" id=6]
 resource_name = "Die"
-length = 2.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Meshes:translation")
 tracks/0/interp = 1
@@ -90,7 +90,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Meshes"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="Meshes"]
