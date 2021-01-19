@@ -66,11 +66,43 @@ __meta__ = {
 ]]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -14.0
-margin_right = 126.0
-margin_bottom = 14.0
+margin_left = 15.9098
+margin_top = -12.7625
+margin_right = 141.91
+margin_bottom = 15.2375
 custom_fonts/font = SubResource( 3 )
 text = "Ammo: 0/0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthContainer" type="ColorRect" parent="Head/Camera/GUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 990.0
+margin_top = 580.564
+margin_right = 1240.0
+margin_bottom = 630.564
+color = Color( 0.247059, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="Head/Camera/GUI/HealthContainer" groups=[
+"Ammo",
+]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 0.707031
+margin_top = -14.0
+margin_right = 126.707
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "Health: "
 align = 1
 valign = 1
 __meta__ = {

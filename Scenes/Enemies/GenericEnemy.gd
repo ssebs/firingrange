@@ -8,8 +8,12 @@ onready var ap = $AnimationPlayer
 
 var path = []
 var path_node = 0
-var speed = 2
+var speed = 3
+var damage = 10
 var is_in_area = false
+var is_dead = false
+var target_body
+
 export var health = 100
 
 var player
@@ -33,25 +37,33 @@ func move_to(target_pos):
 
 func do_dmg():
 	ap.play("Hit")
+	if target_body.has_method("take_dmg"):
+		target_body.take_dmg(damage, self.global_transform)
 
 func bullet_hit(dmg, body):
 	health -= dmg
 	if health <= 0:
-		ap.play("Die")
-		yield(ap, "animation_finished")
-		queue_free()
+		die()
+
+func die():
+	ap.play("Die")
+	yield(ap, "animation_finished")
+	is_dead = true
+	queue_free()
 
 func _on_Area_body_entered(body):
 	if health > 0:
 		if body.is_in_group("Players"):
 			is_in_area = true
 			dmg_timer.start()
+			target_body = body
 
 func _on_Area_body_exited(body):
 	if health > 0:
 		if body.is_in_group("Players"):
 			is_in_area = false
 			dmg_timer.stop()
+			target_body = null
 
 func _on_DmgTimer_timeout():
 	if health > 0:

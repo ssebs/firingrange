@@ -107,3 +107,5 @@ material/0 = SubResource( 5 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0 )
 shape = SubResource( 6 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

@@ -8,6 +8,7 @@ var show_crosshair = false
 var accel = 20
 var speed = 10
 var jump = 5
+var health = 100
 
 var direction: Vector3
 var velocity: Vector3
@@ -27,6 +28,7 @@ onready var hand = $Head/Hand
 onready var crosshair = $Head/Camera/Crosshair
 onready var reach = $Head/Camera/Reach
 onready var inventory = $Head/Inventory
+onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
 
 # For mouse input
 func _input(event):
@@ -74,6 +76,8 @@ func _process(delta):
 	else:
 		wpn_to_drop = null
 	
+	# Render health
+	health_labl.text = "  Health: " + str(health)
 # _process
 
 func _physics_process(delta):
@@ -145,6 +149,12 @@ func handle_guns(delta):
 			primary_gun = gun
 # handle_guns
 
+func take_dmg(dmg, body):
+	health -= dmg
+	if health <= 0:
+		print("ded")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Scenes/Main.tscn")
 
 # Helper functions
 func get_is_mouse_captured() -> bool:

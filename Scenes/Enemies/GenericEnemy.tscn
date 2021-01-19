@@ -22,7 +22,7 @@ radius = 3.0
 
 [sub_resource type="Animation" id=6]
 resource_name = "Die"
-length = 30.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Meshes:translation")
 tracks/0/interp = 1
