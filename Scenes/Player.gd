@@ -2,7 +2,7 @@ extends KinematicBody
 
 const GRAVITY = 9.8
 
-export var MOUSE_SENSITIVITY = 0.07
+var MOUSE_SENSITIVITY = 0.07
 
 var show_crosshair = false
 var accel = 20
@@ -25,23 +25,32 @@ var secondary_gun
 onready var cam = $Head/Camera
 onready var head = $Head
 onready var hand = $Head/Hand
-onready var crosshair = $Head/Camera/Crosshair
+onready var crosshair = $Head/Camera/GUI/Crosshair
 onready var reach = $Head/Camera/Reach
 onready var inventory = $Head/Inventory
 onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
+onready var settings_pop = $Head/Camera/GUI/Settings
+
+var is_in_settings_pop = false
+
+# Functions
+func _ready():
+	MOUSE_SENSITIVITY = Settings.get_setting("input","mouse_sensitivity")
 
 # For mouse input
 func _input(event):
 	# Click to capture mouse
-	if Input.is_mouse_button_pressed(BUTTON_LEFT) and not get_is_mouse_captured():
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and not get_is_mouse_captured() and not is_in_settings_pop:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		show_crosshair = true
 	# Cancel capture mouse
 	if Input.is_action_just_pressed("ui_cancel") and get_is_mouse_captured():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		show_crosshair = false
-		# enable, once return to scene is working
-#		get_tree().change_scene("res://Scenes/Main.tscn")
+		if not is_in_settings_pop:
+			show_crosshair = false
+			settings_pop.visible = true
+			is_in_settings_pop = true
 	
 	# Camera movement
 	if event is InputEventMouseMotion and get_is_mouse_captured():
@@ -52,6 +61,10 @@ func _input(event):
 
 func _process(delta):
 	crosshair.show() if show_crosshair else crosshair.hide()
+	
+	# Check settings if in pause menu
+	if is_in_settings_pop:
+		MOUSE_SENSITIVITY = Settings.get_setting("input","mouse_sensitivity")
 	
 	# Choose gun to pickup
 	if reach.is_colliding() and reach.get_collider():
@@ -86,6 +99,8 @@ func _physics_process(delta):
 # _physics_process
 
 func handle_movement(delta):
+	if is_in_settings_pop:
+		return
 	direction = Vector3()
 	
 	# Gravity
@@ -113,6 +128,8 @@ func handle_movement(delta):
 # handle_movement
 
 func handle_guns(delta):
+	if is_in_settings_pop:
+		return
 	# Shoot
 	if Input.is_action_pressed("fire"):
 		if gun: gun.shoot()
@@ -150,6 +167,8 @@ func handle_guns(delta):
 # handle_guns
 
 func take_dmg(dmg, body):
+	if is_in_settings_pop:
+		return
 	health -= dmg
 	if health <= 0:
 		print("ded")
@@ -164,3 +183,9 @@ func get_is_mouse_captured() -> bool:
 func _on_Area_body_entered(body):
 	if body.is_in_group("Players") or body.is_in_group("Bullets"):
 		get_tree().change_scene("res://Scenes/Maps/TestMap.tscn")
+
+
+func _on_Close_pressed():
+	settings_pop.visible = false
+	is_in_settings_pop = false
+	show_crosshair = true
