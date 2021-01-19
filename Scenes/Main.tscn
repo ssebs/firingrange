@@ -101,5 +101,5 @@ __meta__ = {
 }
 [connection signal="value_changed" from="Panel/VBoxContainer/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
 [connection signal="pressed" from="Panel/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_CloseContinue_pressed"]
+[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_Start_pressed"]
