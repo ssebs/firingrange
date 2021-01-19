@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/WorldObjects/Door.tscn" type="PackedScene" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.1, 3, 1 )
+extents = Vector3( 0.1, 3, 0.456621 )
 
 [node name="DoorWall" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
@@ -13,15 +13,15 @@ __meta__ = {
 }
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.52784 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5022 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.04458, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
@@ -33,6 +33,10 @@ material = ExtResource( 1 )
 [node name="Hole" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.11, 0, 0, 0, 2, 0, 0, 0, 1, 0, -1.01902, 0 )
 operation = 2
+depth = 4.0
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 1 )
+
+[node name="Door2" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1, -1 )
