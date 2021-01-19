@@ -130,6 +130,7 @@ __meta__ = {
 }
 
 [node name="Settings" type="Control" parent="Head/Camera/GUI"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
