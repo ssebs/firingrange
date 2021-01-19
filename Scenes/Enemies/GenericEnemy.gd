@@ -58,4 +58,3 @@ func _on_DmgTimer_timeout():
 func _on_MoveTimer_timeout():
 	if player:
 		move_to(player.global_transform.origin)
-		print("move to player")
