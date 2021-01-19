@@ -43,6 +43,6 @@ func load_settings():
 	for s in _settings.keys():
 		for k in _settings[s].keys():
 			_settings[s][k] = _config_file.get_value(s, k, 0)
-	print(_settings)
+#	print(_settings)
 
 # load_settings

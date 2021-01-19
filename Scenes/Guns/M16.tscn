@@ -32,7 +32,7 @@ collision_mask = 2147483649
 script = ExtResource( 2 )
 
 [node name="FirePoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114336, -1.80794 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00344343, -1.80794 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")

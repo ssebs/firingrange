@@ -27,6 +27,7 @@ onready var head = $Head
 onready var hand = $Head/Hand
 onready var crosshair = $Head/Camera/GUI/Crosshair
 onready var reach = $Head/Camera/Reach
+onready var aimcast = $Head/Camera/AimCast
 onready var inventory = $Head/Inventory
 onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
 onready var settings_pop = $Head/Camera/GUI/Settings
@@ -36,6 +37,7 @@ var is_in_settings_pop = false
 # Functions
 func _ready():
 	MOUSE_SENSITIVITY = Settings.get_setting("input","mouse_sensitivity")
+	randomize()
 
 # For mouse input
 func _input(event):
@@ -132,7 +134,14 @@ func handle_guns(delta):
 		return
 	# Shoot
 	if Input.is_action_pressed("fire"):
-		if gun: gun.shoot()
+		if gun:
+			var recoil_y = rand_range(0,3)
+			var recoil_x = rand_range(-1,1)
+#			self.rotation_degrees.x = lerp(self.rotation_degrees, self.rotation_degrees.y + 1, 0.1)
+			head.rotate_x(deg2rad(recoil_y * MOUSE_SENSITIVITY))
+			self.rotate_y(deg2rad(recoil_x * MOUSE_SENSITIVITY))
+#			aimcast.look_at(aimcast.get_collision_point(), Vector3.UP)
+			gun.shoot(aimcast.get_collision_point())
 			
 	# Reload
 	if Input.is_action_just_pressed("reload"):

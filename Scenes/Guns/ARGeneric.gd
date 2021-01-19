@@ -40,7 +40,7 @@ func _process(delta):
 	if picked_up:
 		ammo_label.text = "Ammo: " + str(ammo_left) + "/" + str(ammo_spare)
 
-func shoot():
+func shoot(rc_target):
 	if ap.is_playing():
 		return
 	
@@ -48,8 +48,9 @@ func shoot():
 		# Spawn bullet
 		var b = bullet_scn.instance()
 		fp.add_child(b)
-		b.global_transform = self.global_transform
-		b.translate(-transform.basis.z * 2)
+		b.global_transform = fp.global_transform
+		b.translate(-transform.basis.z)
+		b.look_at(rc_target, Vector3.UP)
 		b.DAMAGE = damage
 		b.SPEED = bullet_vel
 		# For the player

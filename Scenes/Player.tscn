@@ -164,6 +164,10 @@ __meta__ = {
 enabled = true
 cast_to = Vector3( 0, 0, -5 )
 
+[node name="AimCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+
 [node name="Hand" type="Spatial" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 0.406, -0.686 )
 script = ExtResource( 4 )

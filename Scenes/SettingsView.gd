@@ -18,8 +18,8 @@ func _ready():
 func _on_VolumeSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(_bus, linear2db(value/100 as float))
 	Settings.set_setting("audio","volume", value)
-	print("Set vol " + str(value))
+#	print("Set vol " + str(value))
 
 func _on_SensitivitySlider_value_changed(value):
 	Settings.set_setting("input","mouse_sensitivity", value / 100 as float)
-	print("Set sens " + str(value))
+#	print("Set sens " + str(value))

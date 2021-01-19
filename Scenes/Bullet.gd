@@ -2,7 +2,7 @@ extends Spatial
 
 export var DAMAGE = 10
 export var SPEED = 10
-export var GRAVITY = .01
+export var GRAVITY = 0.01
 export var TIMEOUT = 20
 
 
