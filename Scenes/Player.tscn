@@ -160,6 +160,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Quit" type="Button" parent="Head/Camera/GUI/Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -70.0
+margin_top = 262.677
+margin_right = 70.0
+margin_bottom = 309.677
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Reach" type="RayCast" parent="Head/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -5 )
@@ -178,3 +193,4 @@ crosshair_path = NodePath("../Camera/GUI/Crosshair")
 
 [node name="Inventory" type="Spatial" parent="Head"]
 [connection signal="pressed" from="Head/Camera/GUI/Settings/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="Head/Camera/GUI/Settings/Quit" to="." method="_on_Quit_pressed"]

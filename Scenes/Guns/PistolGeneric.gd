@@ -14,19 +14,23 @@ var max_ammo_in_mag
 var fire_speed
 var damage
 var bullet_vel
+var h_recoil
+var v_recoil
 
 var dropped = false
 var picked_up = false
 var ammo_label: Label
 
 # Functions
-func _init(_al=30, _as=60, _dmg=20, _fs=1, _vel=80).():
+func _init(_al=7, _as=21, _dmg=20, _fs=1, _vel=80, _hr=1, _vr=2).():
 	ammo_left = _al
 	ammo_spare = _as
 	max_ammo_in_mag = _al
 	fire_speed = _fs
 	damage = _dmg
 	bullet_vel = _vel
+	h_recoil = _hr
+	v_recoil = _vr
 
 func _ready():
 	audio.connect("finished", self, "destroy")
@@ -53,7 +57,8 @@ func shoot(rc_target):
 #		b.global_transform = self.global_transform
 		b.global_transform = fp.global_transform
 		b.translate(-transform.basis.z)
-		b.look_at(rc_target, Vector3.UP)
+		if rc_target:
+			b.look_at(rc_target, Vector3.UP)
 		b.DAMAGE = damage
 		b.SPEED = bullet_vel
 		
