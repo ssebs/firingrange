@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -10,10 +10,12 @@
 [ext_resource path="res://Scenes/WorldObjects/Ramp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/WorldObjects/Crate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Guns/AK.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Deagle.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/M16.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/TestGun.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/AUG.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Maps/TestMap.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/Guns/AWP.tscn" type="PackedScene" id=16]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 56.8635, 1, 73.2004 )
@@ -65,16 +67,22 @@ omni_attenuation = 1.36604
 transform = Transform( -3.5766e-08, -0.81823, -0.574891, 1, -4.37114e-08, 0, -2.51293e-08, -0.574891, 0.81823, -1.47955, 2.17893, -7.1604 )
 
 [node name="BasicPistol" parent="Guns" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.546487, 2.15944, -7.15692 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.378129, 2.15944, -6.99421 )
 
 [node name="AUG" parent="Guns" instance=ExtResource( 14 )]
-transform = Transform( -4.33283e-08, -0.991236, 0.132101, 1, -4.37114e-08, 0, 5.77431e-09, 0.132101, 0.991236, 0.315043, 2.11595, -7.2814 )
+transform = Transform( -4.33283e-08, -0.991236, 0.132101, 1, -4.37114e-08, 0, 5.77431e-09, 0.132101, 0.991236, 0.71539, 2.11595, -7.2814 )
 
 [node name="M16" parent="Guns" instance=ExtResource( 12 )]
-transform = Transform( -4.00433e-08, 0.916083, 0.400989, -1, -4.37114e-08, 0, 1.75278e-08, -0.400989, 0.916083, 1.41273, 2.15186, -7.33876 )
+transform = Transform( -4.00433e-08, 0.916083, 0.400989, -1, -4.37114e-08, 0, 1.75278e-08, -0.400989, 0.916083, 2.01246, 2.15186, -7.33876 )
 
 [node name="TestGun" parent="Guns" instance=ExtResource( 13 )]
-transform = Transform( 2.83459e-08, -0.648479, 0.761233, -1, -4.37114e-08, 0, 3.32745e-08, -0.761233, -0.648479, 2.08547, 2.16182, -7.6866 )
+transform = Transform( 2.83459e-08, -0.648479, 0.761233, -1, -4.37114e-08, 0, 3.32745e-08, -0.761233, -0.648479, 3.10208, 2.16182, -6.94215 )
+
+[node name="AWP" parent="Guns" instance=ExtResource( 16 )]
+transform = Transform( -1.51257e-08, -0.346035, 0.938222, 1, -4.37114e-08, 0, 4.1011e-08, 0.938222, 0.346035, 6.80152, 2.21114, -6.94155 )
+
+[node name="Deagle" parent="Guns" instance=ExtResource( 11 )]
+transform = Transform( -3.89496e-08, -0.891062, 0.453882, 1, -4.37114e-08, 0, 1.98398e-08, 0.453882, 0.891062, 4.08029, 2.18403, -6.72311 )
 
 [node name="DoorWall" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.9985, 3.01898, 2.02205 )
@@ -203,7 +211,19 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, 1
 [node name="FurnitureObjects" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 
 [node name="Crate" parent="Navigation/NavigationMeshInstance/FurnitureObjects" instance=ExtResource( 9 )]
-transform = Transform( 2.43898, 0, 0, 0, 1, 0, 0, 0, 1, 0.0976033, 1.08812, -7.49021 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42904, 1.08812, -7.40303 )
+
+[node name="Crate2" parent="Navigation/NavigationMeshInstance/FurnitureObjects" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.676108, 1.08812, -7.40303 )
+
+[node name="Crate3" parent="Navigation/NavigationMeshInstance/FurnitureObjects" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78273, 1.08812, -7.40303 )
+
+[node name="Crate4" parent="Navigation/NavigationMeshInstance/FurnitureObjects" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89205, 1.08812, -7.40303 )
+
+[node name="Crate5" parent="Navigation/NavigationMeshInstance/FurnitureObjects" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96658, 1.08812, -7.40303 )
 
 [node name="SpawnPoint" type="Spatial" parent="Navigation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.712, 2, 7.186 )

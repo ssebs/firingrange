@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/AWP.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/BasicPistol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/AK.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/M16.tscn" type="PackedScene" id=6]
@@ -111,6 +112,9 @@ transform = Transform( 1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.3711
 
 [node name="M16" parent="GunsGroup" instance=ExtResource( 6 )]
 transform = Transform( -4.47035e-08, 4.44089e-16, 1, 1, -4.37114e-08, 4.47035e-08, 4.37114e-08, 1, 1.91069e-15, 0.298241, 5.96046e-08, 0.916974 )
+
+[node name="AWP" parent="GunsGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.0152363, 4.43874e-08, 0.999884, 0.999884, -4.40323e-08, 0.0152363, 4.47035e-08, 1, -4.37114e-08, 0.289263, 0.113565, -2.10601 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0 )
