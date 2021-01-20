@@ -75,5 +75,10 @@ margin_top = 191.0
 margin_right = 584.0
 margin_bottom = 207.0
 value = 50.0
+
+[node name="KeyBindContainer" type="VBoxContainer" parent="."]
+margin_top = 211.0
+margin_right = 584.0
+margin_bottom = 211.0
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="SensitivitySlider" to="." method="_on_SensitivitySlider_value_changed"]

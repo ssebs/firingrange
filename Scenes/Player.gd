@@ -1,6 +1,6 @@
 extends KinematicBody
 
-const GRAVITY = 9.8
+const GRAVITY = 20
 
 var MOUSE_SENSITIVITY = 0.07
 
@@ -9,17 +9,11 @@ var accel = 20
 var speed = 10
 var jump = 5
 var health = 100
+var sprint = 20
 
 var direction: Vector3
 var velocity: Vector3
 var fall: Vector3
-
-var wpn_to_spawn
-var wpn_to_drop
-
-# attmpt
-var primary_gun
-var secondary_gun
 
 var gun
 var active_guns = []
@@ -83,6 +77,7 @@ func handle_movement(delta):
 	if is_in_settings_pop:
 		return
 	direction = Vector3()
+	var is_sprinting = false
 	
 	# Gravity
 	if not self.is_on_floor():
@@ -102,8 +97,17 @@ func handle_movement(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction += self.transform.basis.x
 		
+	# Sprint
+	if Input.is_action_pressed("k_sprint"):
+		is_sprinting = true
+		
 	direction = direction.normalized()
-	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
+
+	if is_sprinting:
+		velocity = velocity.linear_interpolate(direction * sprint, accel * delta)
+	else:
+		velocity = velocity.linear_interpolate(direction * speed, accel * delta)
+
 	velocity = self.move_and_slide(velocity, Vector3.UP)
 	move_and_slide(fall, Vector3.UP)
 # handle_movement
@@ -128,7 +132,7 @@ func handle_guns(delta):
 	if Input.is_action_just_pressed("reload"):
 		if gun: gun.reload()
 		
-	if Input.is_action_just_pressed("inspect"):
+	if Input.is_action_just_pressed("k_inspect"):
 		if gun: gun.inspect_wpn()
 
 	# Switch weapons
@@ -143,7 +147,7 @@ func handle_guns(delta):
 
 	# TODO: Animation
 	# Pickup and drop gun
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("k_interact"):
 		# Choose gun to pickup
 		if reach.is_colliding() and reach.get_collider():
 			if reach.get_collider().has_method("shoot"):

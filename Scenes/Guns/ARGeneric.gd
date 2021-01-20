@@ -47,7 +47,7 @@ func _process(delta):
 	
 	# Block aim if reloading/inspecting/etc
 	if ap.is_playing():
-		print(ap.current_animation)
+#		print(ap.current_animation)
 		if ap.current_animation != "ARFire":
 			is_blocking_aim = true
 		else:
