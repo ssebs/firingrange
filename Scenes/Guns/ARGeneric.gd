@@ -19,6 +19,7 @@ var v_recoil
 
 var dropped = false
 var picked_up = false
+var is_blocking_aim = false
 var ammo_label: Label
 
 # Functions
@@ -43,6 +44,16 @@ func _process(delta):
 		dropped = false
 	if picked_up:
 		ammo_label.text = "Ammo: " + str(ammo_left) + "/" + str(ammo_spare)
+	
+	# Block aim if reloading/inspecting/etc
+	if ap.is_playing():
+		print(ap.current_animation)
+		if ap.current_animation != "ARFire":
+			is_blocking_aim = true
+		else:
+			is_blocking_aim = false
+	else:
+		is_blocking_aim = false
 
 func shoot(rc_target):
 	if ap.is_playing():
