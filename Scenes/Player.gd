@@ -14,13 +14,16 @@ var direction: Vector3
 var velocity: Vector3
 var fall: Vector3
 
-var gun
 var wpn_to_spawn
 var wpn_to_drop
 
+# attmpt
 var primary_gun
 var secondary_gun
 
+var gun
+var active_guns = []
+var current_gun = 0
 
 onready var cam = $Head/Camera
 onready var head = $Head
@@ -28,7 +31,6 @@ onready var hand = $Head/Hand
 onready var crosshair = $Head/Camera/GUI/Crosshair
 onready var reach = $Head/Camera/Reach
 onready var aimcast = $Head/Camera/AimCast
-onready var inventory = $Head/Inventory
 onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
 onready var settings_pop = $Head/Camera/GUI/Settings
 
@@ -67,29 +69,6 @@ func _process(delta):
 	# Check settings if in pause menu
 	if is_in_settings_pop:
 		MOUSE_SENSITIVITY = Settings.get_setting("input","mouse_sensitivity")
-	
-	# Choose gun to pickup
-	if reach.is_colliding() and reach.get_collider():
-		if reach.get_collider().has_method("shoot"):
-			wpn_to_spawn = load(reach.get_collider().filename).instance()
-			wpn_to_spawn.picked_up = true
-			primary_gun = wpn_to_spawn
-#			print(wpn_to_spawn)
-		else:
-			wpn_to_spawn = null
-	else:
-		wpn_to_spawn = null
-	
-	# Choose a gun to drop
-	if hand.get_child(0) != null:
-		# fix
-		if secondary_gun == null:
-			secondary_gun = load(hand.get_child(0).filename).instance()
-		else:
-			wpn_to_drop = load(hand.get_child(0).filename).instance()
-#		print(wpn_to_drop)
-	else:
-		wpn_to_drop = null
 	
 	# Render health
 	health_labl.text = "  Health: " + str(health)
@@ -152,30 +131,55 @@ func handle_guns(delta):
 	if Input.is_action_just_pressed("inspect"):
 		if gun: gun.inspect_wpn()
 
-	# TODO: fix
 	# Switch weapons
 	if Input.is_action_just_pressed("gun1"):
-		gun = primary_gun
-	elif Input.is_action_just_pressed("gun2"):
-		gun = secondary_gun
+		if hand.get_child_count() > 0 and hand.get_child(0) != null:
+			current_gun = 0
+			load_gun()
+	if Input.is_action_just_pressed("gun2"):
+		if hand.get_child_count() > 1 and hand.get_child(1) != null:
+			current_gun = 1
+			load_gun()
 
+	# TODO: Animation
 	# Pickup and drop gun
 	if Input.is_action_just_pressed("interact"):
-		if wpn_to_spawn != null:
-			if hand.get_child(0) != null:
-				if secondary_gun == null:
-					secondary_gun = wpn_to_drop
-					return
-				self.get_parent().add_child(wpn_to_drop)
-				wpn_to_drop.global_transform = hand.global_transform
-				wpn_to_drop.dropped = true
-				hand.get_child(0).queue_free()
-			reach.get_collider().queue_free()
-			hand.add_child(wpn_to_spawn)
-			wpn_to_spawn.rotation = hand.rotation
-			gun = wpn_to_spawn
-			primary_gun = gun
+		# Choose gun to pickup
+		if reach.is_colliding() and reach.get_collider():
+			if reach.get_collider().has_method("shoot"):
+				if hand.get_child_count() == 2:
+					var dropped_gun = load(hand.get_child(current_gun).filename).instance()
+					self.get_parent().add_child(dropped_gun)
+					dropped_gun.global_transform = hand.global_transform
+					dropped_gun.dropped = true
+					hand.get_child(current_gun).free()  # Delete from hand since it's loaded in the world
+					
+					# Create new gun
+					hand.add_child(load(reach.get_collider().filename).instance())
+					# Set current gun to proper slot
+					hand.move_child(gun, current_gun)
+				else:
+					current_gun = hand.get_child_count() # Select new gun
+					hand.add_child(load(reach.get_collider().filename).instance())
+
+				load_gun()
+				gun.equip_wpn()
+				reach.get_collider().queue_free()  # Remove selected gun from world
+#				print("Current gun: " + str(hand.get_child(current_gun)))
+			# end pickup gun interact
+		# end reach colliding
+	# end interact input
 # handle_guns
+
+func load_gun():
+	for g in hand.get_children():
+		g.visible = false
+		g.picked_up = false
+	gun = hand.get_child(current_gun)
+	gun.rotation = hand.rotation
+	gun.visible = true
+	gun.picked_up = true  # Set ammo counter
+
 
 func take_dmg(dmg, body):
 	if is_in_settings_pop:

@@ -71,6 +71,9 @@ func shoot(rc_target):
 func inspect_wpn():
 	ap.play("ARInspect")
 
+func equip_wpn():
+	print("Replace this with an equip animation")
+
 func reload():
 	if ap.is_playing():
 		return

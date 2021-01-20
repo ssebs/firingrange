@@ -190,7 +190,5 @@ default_pos = Vector3( 0.418, 0.406, -0.686 )
 ads_pos = Vector3( 0, 0.623, -0.569 )
 cam_path = NodePath("../Camera")
 crosshair_path = NodePath("../Camera/GUI/Crosshair")
-
-[node name="Inventory" type="Spatial" parent="Head"]
 [connection signal="pressed" from="Head/Camera/GUI/Settings/Close" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="Head/Camera/GUI/Settings/Quit" to="." method="_on_Quit_pressed"]
