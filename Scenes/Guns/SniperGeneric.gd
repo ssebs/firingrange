@@ -66,7 +66,6 @@ func _process(delta):
 		if has_aimed and not is_aiming:
 			ap.play("SniperNoADS")
 			has_aimed = false
-
 # _process
 
 func shoot(rc_target):

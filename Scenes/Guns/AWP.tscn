@@ -6,9 +6,9 @@
 [ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=5]
 [ext_resource path="res://Assets/Models/Awp.obj" type="ArrayMesh" id=6]
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=1]
 resource_name = "SniperUnADS"
-length = 0.75
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.73884 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( -0.418, 0.19, 0.438 ) ]
@@ -29,7 +29,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.55, 0.73884 ),
+"times": PoolRealArray( 0, 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0.581165, -5.33855, 6.19491 ), Vector3( 0, 0, 0 ) ]
@@ -41,13 +41,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = false
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.73884 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "SniperFire"
 length = 0.8
 tracks/0/type = "value"
@@ -111,8 +111,9 @@ tracks/4/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0.109054, 0.014912, 0 ), Vector3( 0.109054, 0.014912, 0.108983 ), Vector3( 0.109054, 0.014912, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=3]
 resource_name = "SniperNoADS"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -120,7 +121,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( -0.418, 0.19, 0.438 ), Vector3( 0, 0, 0 ) ]
@@ -132,13 +133,13 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="SpatialMaterial" id=2]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.788235, 0.466667, 0.0117647, 1 )
 emission_enabled = true
 emission = Color( 0.964706, 0.721569, 0.258824, 1 )
@@ -146,56 +147,55 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereMesh" id=3]
-material = SubResource( 2 )
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
 radius = 0.05
 height = 0.1
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.32549, 0.537255, 0.313726, 1 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=9]
 flags_transparent = true
 albedo_color = Color( 0.254902, 0.686275, 1, 0.447059 )
 
-[sub_resource type="CylinderMesh" id=12]
+[sub_resource type="CylinderMesh" id=10]
 top_radius = 0.02
 bottom_radius = 0.02
 height = 0.3
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=11]
 albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 
-[sub_resource type="CylinderMesh" id=14]
+[sub_resource type="CylinderMesh" id=12]
 top_radius = 0.02
 bottom_radius = 0.02
 height = 0.05
 
-[sub_resource type="SpatialMaterial" id=15]
+[sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 
-[sub_resource type="SphereMesh" id=10]
+[sub_resource type="SphereMesh" id=14]
 radius = 0.05
 height = 0.1
 radial_segments = 8
 rings = 8
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.05, 0.441445, 2.44287 )
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.05, 0.342, 1.255 )
 
 [node name="AWP" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240122, 0.135 )
 collision_layer = 2147483649
-collision_mask = 2147483649
 script = ExtResource( 1 )
 
 [node name="FirePoint" type="Spatial" parent="."]
@@ -207,10 +207,10 @@ anims/ARFire = ExtResource( 4 )
 anims/ARInspect = ExtResource( 3 )
 anims/ARReload = ExtResource( 5 )
 anims/GunsARInspect = ExtResource( 3 )
-anims/SniperADS = SubResource( 16 )
-anims/SniperFire = SubResource( 9 )
-anims/SniperNoADS = SubResource( 17 )
-anims/SniperUnADS = SubResource( 16 )
+anims/SniperADS = SubResource( 1 )
+anims/SniperFire = SubResource( 2 )
+anims/SniperNoADS = SubResource( 3 )
+anims/SniperUnADS = SubResource( 1 )
 
 [node name="GunBody" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -218,41 +218,40 @@ transform = Transform( 1, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, 0, 0 )
 [node name="MuzzleFlash" type="MeshInstance" parent="GunBody"]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0931226, -4.01477 )
 visible = false
-mesh = SubResource( 3 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="AWP" type="MeshInstance" parent="GunBody"]
 transform = Transform( -0.75, 0, -2.44381e-07, 0, 0.749999, 0, 2.44381e-07, 0, -0.749999, 0, -0.0128785, -0.479591 )
 mesh = ExtResource( 6 )
-material/0 = SubResource( 4 )
-material/1 = SubResource( 6 )
-material/2 = SubResource( 7 )
-material/3 = SubResource( 8 )
+material/0 = SubResource( 6 )
+material/1 = SubResource( 7 )
+material/2 = SubResource( 8 )
+material/3 = SubResource( 9 )
 material/4 = null
 material/5 = null
 material/6 = null
 material/7 = null
 
 [node name="Bolt" type="Spatial" parent="GunBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Tube" type="MeshInstance" parent="GunBody/Bolt"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.037244, 0.152697, -0.162787 )
-mesh = SubResource( 12 )
-material/0 = SubResource( 13 )
-
-[node name="Tube2" type="MeshInstance" parent="GunBody/Bolt"]
-transform = Transform( 0.707107, -0.707106, 0, 0.707108, 0.707107, 0, 0, 0, 1, 0.0485589, 0.136843, -0.0205793 )
-mesh = SubResource( 14 )
-material/0 = SubResource( 15 )
-
-[node name="Ball" type="MeshInstance" parent="GunBody/Bolt"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0846325, 0.0907024, -0.0205955 )
 mesh = SubResource( 10 )
 material/0 = SubResource( 11 )
 
+[node name="Tube2" type="MeshInstance" parent="GunBody/Bolt"]
+transform = Transform( 0.707107, -0.707106, 0, 0.707108, 0.707107, 0, 0, 0, 1, 0.0485589, 0.136843, -0.0205793 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="Ball" type="MeshInstance" parent="GunBody/Bolt"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0846325, 0.0907024, -0.0205955 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0073238, -1.2671 )
-shape = SubResource( 5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955098, -0.507 )
+shape = SubResource( 16 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
