@@ -1172,6 +1172,10 @@ k_inspect={
  ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_2="DoorHit"
@@ -1182,6 +1186,7 @@ limits/message_queue/max_size_kb=4096
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
