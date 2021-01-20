@@ -251,7 +251,7 @@ mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955098, -0.507 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955098, -0.510031 )
 shape = SubResource( 16 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

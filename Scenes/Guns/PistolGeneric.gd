@@ -20,6 +20,7 @@ var v_recoil
 var dropped = false
 var picked_up = false
 var is_blocking_aim = false
+var is_in_hand = false
 var ammo_label: Label
 
 # Functions

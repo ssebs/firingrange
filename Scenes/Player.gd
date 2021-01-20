@@ -124,7 +124,7 @@ func handle_guns(delta):
 			head.rotate_x(deg2rad(recoil_y/10))
 			self.rotate_y(deg2rad(recoil_x/10))
 			
-			if aimcast.is_colliding():
+			if aimcast.is_colliding() and gun.is_in_hand:
 				gun.shoot(aimcast.get_collision_point())
 			else:
 				gun.shoot(null)
@@ -179,10 +179,12 @@ func load_gun():
 	for g in hand.get_children():
 		g.visible = false
 		g.picked_up = false
+		g.is_in_hand = false
 	gun = hand.get_child(current_gun)
 	gun.rotation = hand.rotation
 	gun.visible = true
 	gun.picked_up = true  # Set ammo counter
+	gun.is_in_hand = true
 
 
 func take_dmg(dmg, body):

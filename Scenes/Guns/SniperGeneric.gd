@@ -23,7 +23,8 @@ var cam
 var fov = {"Default": 70, "ADS": 20}
 var dropped = false
 var picked_up = false
-var is_blocking_aim = true
+var is_blocking_aim = false
+var is_in_hand = false
 var ammo_label: Label
 var is_aiming
 var has_aimed
@@ -50,9 +51,14 @@ func _process(delta):
 		# Drop it forward
 		self.apply_impulse(self.transform.basis.z, -transform.basis.z * 5)
 		dropped = false
+	
+	if is_in_hand:
+		is_blocking_aim = true
+	else:
+		is_blocking_aim = false
+	
 	if picked_up:
 		ammo_label.text = "Ammo: " + str(ammo_left) + "/" + str(ammo_spare)
-		
 		if Input.is_action_pressed("aim"):
 			if not has_aimed:
 				ap.play("SniperADS")
@@ -71,7 +77,7 @@ func _process(delta):
 func shoot(rc_target):
 	if ap.is_playing():
 		return
-	
+
 	if ammo_left > 0:
 		# Spawn bullet
 		var b = bullet_scn.instance()
@@ -86,6 +92,8 @@ func shoot(rc_target):
 		
 		# For the player
 		ap.play("SniperFire", -1, fire_speed)
+		if is_aiming:
+			yield(ap, "animation_finished")
 		audio.stream = sound_pistol
 		audio.play()
 		ammo_left -= 1
@@ -104,6 +112,7 @@ func equip_wpn():
 func reload():
 	if ap.is_playing():
 		return
+		
 	if ammo_spare <= 0 or ammo_left == max_ammo_in_mag:
 		return
 	
@@ -114,6 +123,7 @@ func reload():
 	else:
 		ammo_left += ammo_spare
 		ammo_spare = 0
+	
 	
 	ap.play("ARReload")
 	audio.stream = sound_reload
