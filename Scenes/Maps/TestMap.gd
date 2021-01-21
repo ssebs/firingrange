@@ -4,7 +4,7 @@ var enemies = []
 var max_num_enemies = 5
 
 onready var timer = $Navigation/SpawnTimer
-onready var spawn_loc = $Navigation/SpawnPoint
+onready var spawns = $Navigation/SpawnPoints
 var enemy_type = preload("res://Scenes/Enemies/GenericEnemy.tscn")
 
 func _ready():
@@ -17,12 +17,17 @@ func _process(delta):
 			enemies.erase(e)
 			break
 
+func spawn_enemies():
+	for sl in spawns.get_children():
+		if enemies.size() < max_num_enemies:
+			var new_enimy = enemy_type.instance()
+			new_enimy.global_transform.origin = sl.global_transform.origin + Vector3(lerp(-3,3,randf()), 0, lerp(-3,3,randf()))
+			enemies.append(new_enimy)
+			sl.get_parent().get_parent().add_child(new_enimy)
+
 func _physics_process(delta):
-	if enemies.size() < max_num_enemies:
-		var new_enimy = enemy_type.instance()
-		new_enimy.global_transform.origin = spawn_loc.global_transform.origin + Vector3(lerp(-3,3,randf()), 0, lerp(-3,3,randf()))
-		enemies.append(new_enimy)
-		spawn_loc.get_parent().add_child(new_enimy)
+	spawn_enemies()
 
 func _on_SpawnTimer_timeout():
-	pass # Replace with function body.
+	if max_num_enemies < 30:
+		max_num_enemies += 5

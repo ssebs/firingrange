@@ -8,7 +8,7 @@ onready var ap = $AnimationPlayer
 
 var path = []
 var path_node = 0
-var speed = 3
+var speed = 5
 var damage = 10
 var is_in_area = false
 var is_dead = false

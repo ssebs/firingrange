@@ -1,15 +1,15 @@
 extends KinematicBody
 
-const GRAVITY = 20
+const GRAVITY = 15
 
 var MOUSE_SENSITIVITY = 0.07
 
 var show_crosshair = false
 var accel = 20
 var speed = 10
-var jump = 5
+var jump = 7
 var health = 100
-var sprint = 20
+var sprint = 15
 
 var direction: Vector3
 var velocity: Vector3
