@@ -1178,7 +1178,7 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-3d_physics/layer_2="DoorHit"
+3d_physics/layer_2="BulletHit"
 
 [memory]
 

@@ -10,6 +10,8 @@
 [ext_resource path="res://Scenes/Guns/Pistols/1911.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Maps/Default/Map.gd" type="Script" id=9]
 
+
+
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5, 1, 20 )
 

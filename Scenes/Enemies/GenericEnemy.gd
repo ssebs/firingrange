@@ -41,6 +41,7 @@ func do_dmg():
 		target_body.take_dmg(damage, self.global_transform)
 
 func bullet_hit(dmg, body):
+	print("Take dmg")
 	health -= dmg
 	if health <= 0:
 		die()

@@ -39,7 +39,7 @@ func save_settings():
 	for s in _settings.keys():
 		for k in _settings[s].keys():
 			_config_file.set_value(s, k, _settings[s][k])
-	print("saved settings")
+#	print("saved settings")
 	_config_file.save(SAVE_PATH)
 
 func load_settings():

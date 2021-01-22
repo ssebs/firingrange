@@ -6,7 +6,6 @@
 [ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=4]
 [ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=5]
 
-
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.01, 0.02, 0.01 )
 
@@ -24,7 +23,7 @@ radius = 0.05
 height = 0.1
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.05, 0.34233, 1.25504 )
+extents = Vector3( 0.05, 0.281688, 1.27104 )
 
 [node name="M16" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.160683, 0.0800101 )
@@ -33,7 +32,7 @@ collision_mask = 2147483649
 script = ExtResource( 2 )
 
 [node name="FirePoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00344343, -1.80794 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0283663, -1.55622 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
@@ -73,7 +72,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0.09 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0772839, -0.275885 )
 shape = SubResource( 4 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

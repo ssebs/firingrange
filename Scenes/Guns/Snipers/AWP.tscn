@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Models/Awp.obj" type="ArrayMesh" id=6]
 
 
+
 [sub_resource type="Animation" id=1]
 resource_name = "SniperUnADS"
 length = 0.5
@@ -192,7 +193,7 @@ rings = 8
 albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 
 [sub_resource type="BoxShape" id=16]
-extents = Vector3( 0.05, 0.342, 1.255 )
+extents = Vector3( 0.05, 0.450265, 2.33047 )
 
 [node name="AWP" type="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240122, 0.135 )
@@ -200,7 +201,7 @@ collision_layer = 2147483649
 script = ExtResource( 1 )
 
 [node name="FirePoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0606844, -4.5233 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114998, -3.74934 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GunBody")
@@ -252,7 +253,7 @@ mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955098, -0.510031 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000461653, -1.23647 )
 shape = SubResource( 16 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
