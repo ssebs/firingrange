@@ -1,0 +1,258 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scenes/Guns/Snipers/AWP.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=3]
+[ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=5]
+[ext_resource path="res://Assets/Models/Awp.obj" type="ArrayMesh" id=6]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "SniperUnADS"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.418, 0.19, 0.438 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.581165, -5.33855, 6.19491 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "SniperFire"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0354571, 0.0710696, 0.3, 0.4, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 9.528, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 5.33902, -8.74127, 16.9632 ), Vector3( 5.33902, -8.74127, 16.9632 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0354571, 0.0710696, 0.3, 0.4, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.0588312, 0.0904236 ), Vector3( 0, 0, 0 ), Vector3( -0.331372, 0.231748, -0.208125 ), Vector3( -0.331372, 0.231748, -0.208125 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MuzzleFlash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0354571, 0.0714861, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Bolt:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.379549, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.67372, 1.75832, 41.9274 ), Vector3( -0.67372, 1.75832, 41.9274 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Bolt:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.334021, 0.379549, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.109054, 0.014912, 0 ), Vector3( 0.109054, 0.014912, 0.108983 ), Vector3( 0.109054, 0.014912, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "SniperNoADS"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.418, 0.19, 0.438 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.788235, 0.466667, 0.0117647, 1 )
+emission_enabled = true
+emission = Color( 0.964706, 0.721569, 0.258824, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.32549, 0.537255, 0.313726, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+flags_transparent = true
+albedo_color = Color( 0.254902, 0.686275, 1, 0.447059 )
+
+[sub_resource type="CylinderMesh" id=10]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.3
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="CylinderMesh" id=12]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.05
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="SphereMesh" id=14]
+radius = 0.05
+height = 0.1
+radial_segments = 8
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 0.05, 0.342, 1.255 )
+
+[node name="AWP" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240122, 0.135 )
+collision_layer = 2147483649
+script = ExtResource( 1 )
+
+[node name="FirePoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0606844, -4.5233 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GunBody")
+anims/ARFire = ExtResource( 4 )
+anims/ARInspect = ExtResource( 3 )
+anims/ARReload = ExtResource( 5 )
+anims/GunsARInspect = ExtResource( 3 )
+anims/SniperADS = SubResource( 1 )
+anims/SniperFire = SubResource( 2 )
+anims/SniperNoADS = SubResource( 3 )
+anims/SniperUnADS = SubResource( 1 )
+
+[node name="GunBody" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999998, 0, 0, 0, 0.999999, 0, 0, 0 )
+
+[node name="MuzzleFlash" type="MeshInstance" parent="GunBody"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0931226, -4.01477 )
+visible = false
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="AWP" type="MeshInstance" parent="GunBody"]
+transform = Transform( -0.75, 0, -2.44381e-07, 0, 0.749999, 0, 2.44381e-07, 0, -0.749999, 0, -0.0128785, -0.479591 )
+mesh = ExtResource( 6 )
+material/0 = SubResource( 6 )
+material/1 = SubResource( 7 )
+material/2 = SubResource( 8 )
+material/3 = SubResource( 9 )
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+
+[node name="Bolt" type="Spatial" parent="GunBody"]
+
+[node name="Tube" type="MeshInstance" parent="GunBody/Bolt"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0.037244, 0.152697, -0.162787 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
+
+[node name="Tube2" type="MeshInstance" parent="GunBody/Bolt"]
+transform = Transform( 0.707107, -0.707106, 0, 0.707108, 0.707107, 0, 0, 0, 1, 0.0485589, 0.136843, -0.0205793 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="Ball" type="MeshInstance" parent="GunBody/Bolt"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0846325, 0.0907024, -0.0205955 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0955098, -0.510031 )
+shape = SubResource( 16 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

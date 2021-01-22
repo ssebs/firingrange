@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Guns/SMGs/Vector.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Anims/ARFire.tres" type="Animation" id=4]
+[ext_resource path="res://Scenes/Guns/Anims/ARReload.tres" type="Animation" id=5]
+[ext_resource path="res://Scenes/Guns/Anims/ARInspect.tres" type="Animation" id=6]
+[ext_resource path="res://Assets/Models/vector.mesh" type="ArrayMesh" id=7]
+
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.788235, 0.466667, 0.0117647, 1 )
+emission_enabled = true
+emission = Color( 0.964706, 0.721569, 0.258824, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
+radius = 0.05
+height = 0.1
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.05, 0.34233, 0.67519 )
+
+[node name="Vector" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116, 0.135 )
+collision_layer = 2147483649
+collision_mask = 2147483649
+script = ExtResource( 1 )
+
+[node name="FirePoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.01583 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../GunBody")
+anims/ARFire = ExtResource( 4 )
+anims/ARInspect = ExtResource( 6 )
+anims/ARReload = ExtResource( 5 )
+
+[node name="GunBody" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
+
+[node name="Vector" type="MeshInstance" parent="GunBody"]
+transform = Transform( -2.62268e-07, 6, 4.76837e-07, 1.42109e-14, -4.76837e-07, 5.99999, 5.99999, 2.62268e-07, 1.14641e-14, -0.000836782, 0.0331455, -0.149 )
+mesh = ExtResource( 7 )
+material/0 = SubResource( 6 )
+
+[node name="MuzzleFlash" type="MeshInstance" parent="GunBody"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0361044, -0.754117 )
+visible = false
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179211, 0.0337279 )
+shape = SubResource( 5 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]

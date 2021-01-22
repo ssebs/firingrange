@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Firing Range"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/GUI/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
