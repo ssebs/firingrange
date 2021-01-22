@@ -6,7 +6,7 @@ extends "res://Scenes/Guns/SMGs/SMGGeneric.gd"
 
 func init_vars():
 	ammo_left = 25
-	ammo_spare = 50
+	ammo_spare = 75
 	max_ammo_in_mag = 25
 	fire_speed = 1.5
 	damage = 45

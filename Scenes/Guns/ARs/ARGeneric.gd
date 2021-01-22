@@ -24,7 +24,7 @@ var is_in_hand = false
 var ammo_label: Label
 
 # Functions
-func _init(_al=30, _as=60, _dmg=20, _fs=1, _vel=80, _hr=1, _vr=2).():
+func _init(_al=30, _as=90, _dmg=20, _fs=1, _vel=80, _hr=1, _vr=2).():
 	ammo_left = _al
 	ammo_spare = _as
 	max_ammo_in_mag = _al

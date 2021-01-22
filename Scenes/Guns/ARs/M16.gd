@@ -6,7 +6,7 @@ extends "res://Scenes/Guns/ARs/ARGeneric.gd"
 
 func init_vars():
 	ammo_left = 40
-	ammo_spare = 80
+	ammo_spare = 120
 	max_ammo_in_mag = 40
 	fire_speed = 3
 	damage = 20

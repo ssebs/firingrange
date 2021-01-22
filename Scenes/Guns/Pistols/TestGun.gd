@@ -5,5 +5,5 @@ extends "res://Scenes/Guns/Pistols/PistolGeneric.gd"
 
 func init_vars():
 	ammo_left = 5
-	ammo_spare = 10
-	max_ammo_in_mag = 10
+	ammo_spare = 15
+	max_ammo_in_mag = 5

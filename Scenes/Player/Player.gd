@@ -10,6 +10,7 @@ var speed = 10
 var jump = 7
 var health = 100
 var sprint = 15
+var money = 500
 
 var direction: Vector3
 var velocity: Vector3
@@ -26,6 +27,7 @@ onready var crosshair = $Head/Camera/GUI/Crosshair
 onready var reach = $Head/Camera/Reach
 onready var aimcast = $Head/Camera/AimCast
 onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
+onready var money_labl = $Head/Camera/GUI/MoneyContainer/Money
 onready var settings_pop = $Head/Camera/GUI/Settings
 
 var is_in_settings_pop = false
@@ -64,8 +66,9 @@ func _process(delta):
 	if is_in_settings_pop:
 		MOUSE_SENSITIVITY = Settings.get_setting("input","mouse_sensitivity")
 	
-	# Render health
-	health_labl.text = "  Health: " + str(health)
+	# Render UI
+	health_labl.text = "Health: " + str(health)
+	money_labl.text = "$" + str(money)
 # _process
 
 func _physics_process(delta):
@@ -171,9 +174,29 @@ func handle_guns(delta):
 				reach.get_collider().queue_free()  # Remove selected gun from world
 #				print("Current gun: " + str(hand.get_child(current_gun)))
 			# end pickup gun interact
+			elif reach.get_collider().has_method("buy"):
+				var buy_item = reach.get_collider().buy()
+
+				match buy_item["type"]:
+					"AMMO": buy_ammo(buy_item["cost"])
 		# end reach colliding
 	# end interact input
 # handle_guns
+
+func buy_ammo(cost):
+	if money >= cost:
+		var needs_ammo = false
+		for g in hand.get_children():
+			if g.ammo_spare == g.max_ammo_in_mag * 3:
+				continue
+			g.ammo_spare = g.max_ammo_in_mag * 3
+			g.ammo_left = g.max_ammo_in_mag
+			needs_ammo = true
+		if needs_ammo:
+			money -= cost
+			print("Buying ammo")
+		else:
+			print("Already have max ammo")
 
 func load_gun():
 	for g in hand.get_children():
@@ -185,7 +208,6 @@ func load_gun():
 	gun.visible = true
 	gun.picked_up = true  # Set ammo counter
 	gun.is_in_hand = true
-
 
 func take_dmg(dmg, body):
 	if is_in_settings_pop:

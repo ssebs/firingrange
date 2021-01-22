@@ -48,6 +48,7 @@ func bullet_hit(dmg, body):
 
 func die():
 	ap.play("Die")
+	player.money += 100
 	yield(ap, "animation_finished")
 	is_dead = true
 	queue_free()

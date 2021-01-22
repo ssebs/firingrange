@@ -1179,6 +1179,7 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 3d_physics/layer_2="BulletHit"
+3d_physics/layer_3="PlayerHit"
 
 [memory]
 
