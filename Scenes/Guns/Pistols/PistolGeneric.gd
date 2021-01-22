@@ -113,3 +113,6 @@ func reload():
 func destroy():
 	audio.stop()
 
+# To inherit later
+func init_vars(): 
+	pass
