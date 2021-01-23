@@ -4,6 +4,7 @@ const GRAVITY = 15
 
 var MOUSE_SENSITIVITY = 0.07
 
+var is_in_settings_pop = false
 var show_crosshair = false
 var accel = 20
 var speed = 10
@@ -11,6 +12,7 @@ var jump = 7
 var health = 100
 var sprint = 15
 var money = 500
+var frags = 2
 
 var direction: Vector3
 var velocity: Vector3
@@ -23,6 +25,7 @@ var current_gun = 0
 onready var cam = $Head/Camera
 onready var head = $Head
 onready var hand = $Head/Hand
+onready var pocket = $Head/Pocket
 onready var crosshair = $Head/Camera/GUI/Crosshair
 onready var reach = $Head/Camera/Reach
 onready var aimcast = $Head/Camera/AimCast
@@ -30,7 +33,7 @@ onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
 onready var money_labl = $Head/Camera/GUI/MoneyContainer/Money
 onready var settings_pop = $Head/Camera/GUI/Settings
 
-var is_in_settings_pop = false
+var grenade = preload("res://Scenes/Player/Grenade.tscn")
 
 # Functions
 func _ready():
@@ -181,6 +184,17 @@ func handle_guns(delta):
 					"AMMO": buy_ammo(buy_item["cost"])
 		# end reach colliding
 	# end interact input
+	
+	if Input.is_action_just_pressed("frag"):
+		if frags >= 1:
+			# spawn / throw frag
+			var nade = grenade.instance()
+			self.get_parent().add_child(nade)
+			nade.global_transform = head.global_transform
+			nade.apply_impulse(Vector3.ZERO, nade.global_transform.basis.z * 40)
+			
+			frags -= 1
+	
 # handle_guns
 
 func buy_ammo(cost):

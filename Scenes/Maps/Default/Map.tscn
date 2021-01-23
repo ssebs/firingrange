@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/WorldObjects/Box.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
@@ -29,8 +29,22 @@ albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
 material = SubResource( 5 )
 
 [sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 2, 1 )
 
 [sub_resource type="CubeMesh" id=8]
+size = Vector3( 0.2, 4, 2 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.788235, 0.466667, 0.0117647, 1 )
+
+[sub_resource type="SphereMesh" id=10]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+metallic = 0.32
+metallic_specular = 0.92
 
 [node name="Map" type="Spatial"]
 script = ExtResource( 9 )
@@ -113,11 +127,18 @@ transform = Transform( -0.0030195, 4.38431e-08, 0.999996, 0.999996, -4.35793e-08
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0 )
 mesh = SubResource( 8 )
-material/0 = null
+material/0 = SubResource( 9 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Area"]
+transform = Transform( 0.737405, 0, 0, 0, 0.737405, 0, 0, 0, 0.737405, -1.07663, 0.763525, 0.692076 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="AmmoBuy" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.8089, 1, 7.09248 )

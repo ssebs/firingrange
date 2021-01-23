@@ -9,7 +9,9 @@
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.254902, 0.686275, 1, 1 )
 
-[node name="Box" type="RigidBody"]
+[node name="Box" type="RigidBody" groups=[
+"Enemies",
+]]
 collision_mask = 3
 mass = 10.0
 script = ExtResource( 1 )
