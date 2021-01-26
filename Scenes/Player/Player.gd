@@ -32,6 +32,7 @@ onready var aimcast = $Head/Camera/AimCast
 onready var health_labl = $Head/Camera/GUI/HealthContainer/Health
 onready var money_labl = $Head/Camera/GUI/MoneyContainer/Money
 onready var settings_pop = $Head/Camera/GUI/Settings
+onready var knife = $Head/Melee/Knife
 
 var grenade = preload("res://Scenes/Player/Grenade.tscn")
 
@@ -185,7 +186,7 @@ func handle_guns(delta):
 		# end reach colliding
 	# end interact input
 	
-	if Input.is_action_just_pressed("frag"):
+	if Input.is_action_just_pressed("k_frag"):
 		if frags >= 1:
 			# spawn / throw frag
 			var nade = grenade.instance()
@@ -194,6 +195,9 @@ func handle_guns(delta):
 			nade.apply_impulse(Vector3.ZERO, nade.global_transform.basis.z * 40)
 			
 			frags -= 1
+	
+	if Input.is_action_just_pressed("k_melee"):
+		knife.melee()
 	
 # handle_guns
 

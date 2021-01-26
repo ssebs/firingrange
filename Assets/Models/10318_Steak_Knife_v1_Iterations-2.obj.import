@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/10318_Steak_Knife_v1_Iterations-2.obj-8d5c89ff240682a47647649b871f853e.mesh"
+
+[deps]
+
+files=[ "res://.import/10318_Steak_Knife_v1_Iterations-2.obj-8d5c89ff240682a47647649b871f853e.mesh" ]
+
+source_file="res://Assets/Models/10318_Steak_Knife_v1_Iterations-2.obj"
+dest_files=[ "res://.import/10318_Steak_Knife_v1_Iterations-2.obj-8d5c89ff240682a47647649b871f853e.mesh", "res://.import/10318_Steak_Knife_v1_Iterations-2.obj-8d5c89ff240682a47647649b871f853e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Ubuntu-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player/HandADS.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GUI/SettingsView.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Guns/Melee/Knife.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -219,5 +220,10 @@ default_pos = Vector3( 0.418, 0.406, -0.686 )
 ads_pos = Vector3( 0, 0.623, -0.569 )
 cam_path = NodePath("../Camera")
 crosshair_path = NodePath("../Camera/GUI/Crosshair")
+
+[node name="Melee" type="Spatial" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418, 0.406, -0.686 )
+
+[node name="Knife" parent="Head/Melee" instance=ExtResource( 6 )]
 [connection signal="pressed" from="Head/Camera/GUI/Settings/Close" to="." method="_on_Close_pressed"]
 [connection signal="pressed" from="Head/Camera/GUI/Settings/Quit" to="." method="_on_Quit_pressed"]

@@ -70,6 +70,12 @@ material/0 = SubResource( 3 )
 [node name="Box" parent="BoxesGroup" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87572, 1.2, -18.3652 )
 
+[node name="Box7" parent="BoxesGroup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87572, 1.2, -8.4798 )
+
+[node name="Box8" parent="BoxesGroup" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87572, 1.2, -5.44076 )
+
 [node name="Box2" parent="BoxesGroup" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0900607, 1.2, -18.3652 )
 

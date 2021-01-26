@@ -34,10 +34,16 @@ func _physics_process(delta):
 func _on_hit(body):
 #	print("Bullet hit %s", body.filename)
 	if not hit_something:
+		if body.has_method("bullet_hit_pass"):
+			body.bullet_hit_pass(DAMAGE, self.global_transform)
+			hit_something = true
+			return
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(DAMAGE, self.global_transform)
-	hit_something = true
-	self.queue_free()
+			hit_something = true
+#			self.queue_free()
+			return
+			
 
 func _on_timeout():
 	self.queue_free()

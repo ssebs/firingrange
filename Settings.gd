@@ -11,7 +11,9 @@ var _settings = {
 		"mouse_sensitivity": 0.07,
 		"k_inspect": 73,
 		"k_sprint": 16777237,
-		"k_interact": 70
+		"k_interact": 70,
+		"k_frag": 71,
+		"k_melee": 86
 	}
 }
 
@@ -24,6 +26,7 @@ func _ready():
 func set_setting(category,key, val):
 	_settings[category][key] = val
 	save_settings()
+	set_keybinds()
 
 
 func get_setting(category,key):
@@ -32,8 +35,9 @@ func get_setting(category,key):
 
 func set_settings(settings):
 	_settings = settings.duplicate()
-	print(_settings)
+#	print(_settings)
 	save_settings()
+	set_keybinds()
 	
 func save_settings():
 	for s in _settings.keys():

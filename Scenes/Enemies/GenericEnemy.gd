@@ -46,6 +46,11 @@ func bullet_hit(dmg, body):
 	if health <= 0:
 		die()
 
+func bullet_hit_pass(dmg, body):
+	health -= dmg
+	if health <= 0:
+		die()
+
 func die():
 	ap.play("Die")
 	player.money += 100
