@@ -16,4 +16,5 @@ dest_files=[ "res://.import/10318_Steak_Knife_v1_Iterations-2.obj-8d5c89ff240682
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
 offset_mesh=Vector3( 0, 0, 0 )
-optimize_mesh=true
+octahedral_compression=true
+optimize_mesh_flags=4286

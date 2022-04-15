@@ -25,9 +25,7 @@ __meta__ = {
 
 [node name="SettingsView" parent="Panel" instance=ExtResource( 3 )]
 
-[node name="Start" type="Button" parent="Panel" groups=[
-"GUI",
-]]
+[node name="Start" type="Button" parent="Panel" groups=["GUI"]]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -56,6 +54,7 @@ text = "Close / Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="Panel/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_CloseContinue_pressed"]
+[connection signal="pressed" from="Panel/CloseContinue" to="." method="_on_Start_pressed"]
