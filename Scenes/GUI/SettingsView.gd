@@ -6,6 +6,7 @@ onready var _bus := AudioServer.get_bus_index(audio_bus_name)
 onready var vol_slider := $VolumeSlider
 onready var sensitivity_slider := $SensitivitySlider
 onready var kbc := $KeyBindContainer
+onready var fullscreen_btn := $FullscreenBtn
 onready var btn_script := preload("res://KeyButtonSet.gd")
 
 var settings
@@ -73,3 +74,8 @@ func _on_VolumeSlider_value_changed(value):
 func _on_SensitivitySlider_value_changed(value):
 	Settings.set_setting("input","mouse_sensitivity", value / 100 as float)
 #	print("Set sens " + str(value))
+
+
+func _on_FullscreenBtn_toggled(button_pressed):
+	OS.window_borderless = button_pressed
+	OS.window_fullscreen = button_pressed

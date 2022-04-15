@@ -3,7 +3,6 @@
 [ext_resource path="res://Assets/Ubuntu-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/GUI/SettingsView.gd" type="Script" id=2]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 36
 font_data = ExtResource( 1 )
@@ -20,9 +19,6 @@ margin_top = 32.0
 margin_right = 292.0
 margin_bottom = 688.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 584.0
@@ -77,9 +73,28 @@ margin_right = 584.0
 margin_bottom = 207.0
 value = 50.0
 
-[node name="KeyBindContainer" type="VBoxContainer" parent="."]
+[node name="Blank3" type="Label" parent="."]
 margin_top = 211.0
 margin_right = 584.0
-margin_bottom = 211.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="Fullscreen" type="Label" parent="."]
+margin_top = 241.0
+margin_right = 584.0
+margin_bottom = 255.0
+text = "Fullscreen?"
+
+[node name="FullscreenBtn" type="CheckButton" parent="."]
+margin_top = 259.0
+margin_right = 584.0
+margin_bottom = 299.0
+
+[node name="KeyBindContainer" type="VBoxContainer" parent="."]
+margin_top = 303.0
+margin_right = 584.0
+margin_bottom = 303.0
+
 [connection signal="value_changed" from="VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="SensitivitySlider" to="." method="_on_SensitivitySlider_value_changed"]
+[connection signal="toggled" from="FullscreenBtn" to="." method="_on_FullscreenBtn_toggled"]

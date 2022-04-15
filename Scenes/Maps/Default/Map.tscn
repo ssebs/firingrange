@@ -148,4 +148,5 @@ material/0 = SubResource( 11 )
 
 [node name="AmmoBuy" parent="." instance=ExtResource( 10 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.8089, 1, 7.09248 )
+
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

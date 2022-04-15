@@ -31,6 +31,7 @@ func _process(delta):
 # _process
 
 func melee():
+	print("MELEE")
 	if ap.is_playing():
 		return
 	var bodies = hitarea.get_overlapping_bodies()

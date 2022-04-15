@@ -5,10 +5,10 @@ const SAVE_PATH = "user://config.cfg"
 var _config_file = ConfigFile.new()
 var _settings = {
 	"audio": {
-		"volume": 70
+		"volume": 50
 	},
 	"input": {
-		"mouse_sensitivity": 0.07,
+		"mouse_sensitivity": 0.09,
 		"k_inspect": 73,
 		"k_sprint": 16777237,
 		"k_interact": 70,

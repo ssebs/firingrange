@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	for e in enemies:
-		if e.is_dead:
+		if e != null and e.is_dead:
 			e.queue_free()
 			enemies.erase(e)
 			break
